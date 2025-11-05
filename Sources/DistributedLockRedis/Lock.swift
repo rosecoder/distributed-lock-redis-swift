@@ -31,7 +31,7 @@ public final class RedisLock: DistributedLock {
       redisKey(key),
       to: value,
       onCondition: .keyDoesNotExist,
-      expiration: .milliseconds(timeoutSeconds)
+      expiration: .seconds(timeoutSeconds)
     ).get()
     if wasSet == .ok {
       return
